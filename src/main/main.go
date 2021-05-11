@@ -9,6 +9,7 @@ import (
 	"net/textproto"
 	"strings"
 
+	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -53,9 +54,7 @@ func init() {
 }
 
 func main() {
-	//lambda.Start(HandleRequest)
-	pdf := PreparePdf()
-	SendEmail(SUBJECT, BODY, "yuricampolongo@outlook.com", pdf)
+	lambda.Start(HandleRequest)
 }
 
 /**
